@@ -1,9 +1,12 @@
 from django_filters import FilterSet
 from .models import Post
- 
- 
-# создаём фильтр
-class PostFilter(FilterSet):
-	class Meta:
-		model = Post
-		fields = {'time_in_post': ['gt'],  'head_post': ['icontains'],  'author': ['icontains'],  }
+
+
+class NewsFilter(FilterSet):
+    class Meta:
+        model = Post
+        fields = {
+            'author': ['exact'],
+            'title': ['icontains'],
+            'posted': ['gt']
+        }
